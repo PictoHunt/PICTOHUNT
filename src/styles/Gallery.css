@@ -162,10 +162,6 @@ body {
   margin-top: 0.25rem;
   list-style-type: disc;
 }
-/* Error Animation/msg END */ 
-
-
-/* Loading Animation BEGIN */
 .spinner {
   position: relative;
   width: 60px;
@@ -242,3 +238,5 @@ body {
   }
 }
 /* Loading Animation END */
+
+/*buttons*/
