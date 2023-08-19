@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useGlobalContext } from "./context";
+import { usePageContext } from './PageContext';
 import AnimationError from "./animations/Error";
 import AnimationLoading from "./animations/Loading";
 
@@ -28,11 +29,10 @@ const parseXml = (xmlText) => {
   return images;
 };
 
-
 const Gallery = () => {
   const { searchTerm } = useGlobalContext();
+  const { pageNumber } = usePageContext();
   const [activeImage, setActiveImage] = useState(null);
-  const [pageNumber, setPageNumber] = useState(1); // Track the current page number
 
   const response = useQuery(["images", searchTerm, pageNumber], async () => {
     try {

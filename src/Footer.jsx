@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { usePageContext } from './PageContext';
 
 const Footer = () => {
   const totalPages = 500; // Total number of pages.
-  const [currentPage, setCurrentPage] = useState(1);
+  const { pageNumber, setPageNumber } = usePageContext();
 
   const nextPage = () => {
-    if (currentPage < totalPages) {
-      setCurrentPage(currentPage + 1);
+    if (pageNumber < totalPages) {
+      setPageNumber(pageNumber + 1);
     }
   };
 
   const previousPage = () => {
-    if (currentPage > 1) {
-      setCurrentPage(currentPage - 1);
+    if (pageNumber > 1) {
+      setPageNumber(pageNumber - 1);
     }
   };
 
@@ -26,9 +27,9 @@ const Footer = () => {
           <FontAwesomeIcon icon={faArrowLeft} />
         </span>
         <span className="page-number">
-          {' '}Page {currentPage} of {totalPages}{' '} 
+          {' '}Page {pageNumber} of {totalPages}{' '} 
         </span>
-        {currentPage < totalPages && (
+        {pageNumber < totalPages && (
           <span className="arrow-icon" onClick={nextPage}>
             <FontAwesomeIcon icon={faArrowRight} />
           </span>
