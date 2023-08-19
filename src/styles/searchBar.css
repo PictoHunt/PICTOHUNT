@@ -20,7 +20,7 @@
   color: white;
   border-right: 2px solid #ffffff;
   padding-right: 10px;
-  height: 30px;
+  height: 35px;
   line-height: 30px;
   vertical-align: middle;
 }
@@ -30,9 +30,9 @@
   position: absolute;
   background-color: #2f3640;
   width: 170px;
-  min-width: 160px;
-  border-radius: 8px; /* Increased border radius for aesthetic appeal */
-  padding: 8px;
+  min-width: 200px;
+  border-radius: 10px; /* Increased border radius for aesthetic appeal */
+  padding: 5px;
   z-index: 1;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
 }
