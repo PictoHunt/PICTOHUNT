@@ -105,14 +105,14 @@ const Gallery = () => {
                   className="image-action-button share-button"
                   onClick={() => handleShare(item.imageUrl)}
                 >
-                  Copy link
+                  <i class="bi bi-clipboard"></i>
                 </button>
                 <a
                   href={item.imageUrl}
                   className="image-action-button download-button"
                   onClick={(e) => handleDownload(e, item.imageUrl, item.altText)}
                 >
-                  Direct Download
+                  <i class="bi bi-download"></i>
                 </a>
               </div>
             )}
