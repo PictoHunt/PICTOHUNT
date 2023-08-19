@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { useGlobalContext } from "./context";
 import { usePageContext } from './PageContext';
 import AnimationError from "./animations/Error";
 import AnimationLoading from "./animations/Loading";
@@ -30,9 +29,12 @@ const parseXml = (xmlText) => {
 };
 
 const Gallery = () => {
-  const { searchTerm } = useGlobalContext();
-  const { pageNumber } = usePageContext();
   const [activeImage, setActiveImage] = useState(null);
+  const { searchTerm, setSearchTerm, resetPage, pageNumber } = usePageContext();
+
+  useEffect(() => {
+    resetPage();
+  }, [searchTerm]);
 
   const response = useQuery(["images", searchTerm, pageNumber], async () => {
     try {

@@ -1,12 +1,17 @@
-import React, { createContext, useState, useContext } from 'react';
+import { createContext, useContext, useState } from 'react';
 
 const PageContext = createContext();
 
 export const PageProvider = ({ children }) => {
   const [pageNumber, setPageNumber] = useState(1);
+  const [searchTerm, setSearchTerm] = useState('code'); // Default value
+
+  const resetPage = () => {
+    setPageNumber(1);
+  };
 
   return (
-    <PageContext.Provider value={{ pageNumber, setPageNumber }}>
+    <PageContext.Provider value={{ pageNumber, setPageNumber, searchTerm, setSearchTerm, resetPage }}>
       {children}
     </PageContext.Provider>
   );

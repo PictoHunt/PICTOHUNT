@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { useGlobalContext } from "./context";
-import "./styles/searchBar.css"; // Make sure this path is correct
+import { usePageContext } from './PageContext';
+import "./styles/searchBar.css";
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 const SearchForm = () => {
-  const { setSearchTerm } = useGlobalContext();
+  const { setSearchTerm } = usePageContext();
 
   const [selectedOrientation, setSelectedOrientation] = useState(null);
   const [selectedFileSize, setSelectedFileSize] = useState(null);
