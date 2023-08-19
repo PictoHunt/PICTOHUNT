@@ -4,7 +4,7 @@ import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { usePageContext } from './PageContext';
 
 const Footer = () => {
-  const totalPages = 500; // Total number of pages.
+  const totalPages = 100; // Total number of pages.
   const { pageNumber, setPageNumber } = usePageContext();
 
   const nextPage = () => {

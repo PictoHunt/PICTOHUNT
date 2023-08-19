@@ -31,6 +31,9 @@ const parseXml = (xmlText) => {
 
 const Gallery = () => {
   const [activeImage, setActiveImage] = useState(null);
+  const [shareNotification, setShareNotification] = useState(null);
+  const [downloadNotification, setDownloadNotification] = useState(null);
+
   const { searchTerm, setSearchTerm, resetPage, pageNumber } = usePageContext();
 
   useEffect(() => {
@@ -38,6 +41,7 @@ const Gallery = () => {
   }, [searchTerm]);
 
   const response = useQuery(["images", searchTerm, pageNumber], async () => {
+
     try {
       const result = await axios.get(alamyUrl, {
         params: {
@@ -56,6 +60,10 @@ const Gallery = () => {
 
   const handleShare = (imageUrl) => {
     navigator.clipboard.writeText(imageUrl).then(() => {
+      setShareNotification("Image URL copied!");
+      setTimeout(() => {
+        setShareNotification(null);
+      }, 3000);
     }).catch((error) => {
       console.error("Error copying to clipboard:", error);
     });
@@ -66,6 +74,12 @@ const Gallery = () => {
     const link = document.createElement("a");
     link.href = "https://www.alamy.com/aggregator-api/download?url=" + imageUrl;
     link.download = `${altText}.jpg`;
+
+    setDownloadNotification("Download started!");
+    setTimeout(() => {
+      setDownloadNotification(null);
+    }, 3000);
+
     link.click();
   };
 
@@ -116,16 +130,22 @@ const Gallery = () => {
                   className="image-action-button share-button"
                   onClick={() => handleShare(item.imageUrl)}
                 >
-                  <i class="bi bi-clipboard"></i>
+                  <i className="bi bi-clipboard"></i>
                 </button>
                 <a
                   href={item.imageUrl}
                   className="image-action-button download-button"
                   onClick={(e) => handleDownload(e, item.imageUrl, item.altText)}
                 >
-                  <i class="bi bi-download"></i>
+                  <i className="bi bi-download"></i>
                 </a>
               </div>
+            )}
+            {shareNotification && activeImage === item.id && (
+              <div className="notification">{shareNotification}</div>
+            )}
+            {downloadNotification && activeImage === item.id && (
+              <div className="notification">{downloadNotification}</div>
             )}
           </div>
         ))}
