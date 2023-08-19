@@ -4,6 +4,7 @@ import axios from "axios";
 import { usePageContext } from './PageContext';
 import AnimationError from "./animations/Error";
 import AnimationLoading from "./animations/Loading";
+import AnimationNoResult from "./animations/NoResult";
 
 const alamyUrl = `/api/images/api/v2/search`;
 
@@ -85,6 +86,14 @@ const Gallery = () => {
   }
 
   const images = response.data;
+
+  if (!images || images.length < 1) {
+    return (
+      <section className="image-container no-results">
+        <AnimationNoResult />
+      </section>
+    );
+  }
 
   // Calculate the range of images to display on the current page
   const startIndex = (pageNumber - 1) * 8;
