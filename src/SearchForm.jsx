@@ -38,13 +38,13 @@ const SearchForm = () => {
                 <div className="nestedDropdownContent">
                   <div className={`nestedDropdown ${selectedOrientation === 'landscape' ? 'selected' : ''}`}>
                     <a href="#" onClick={() => handleOrientationSelection('landscape')}>
-                      {selectedOrientation === 'landscape' && <span className="selectedIcon">●</span>}
+                      {selectedOrientation === 'landscape' && <span className="selectedIcon">● </span>}
                       Landscape
                     </a>
                   </div>
                   <div className={`nestedDropdown ${selectedOrientation === 'portrait' ? 'selected' : ''}`}>
                     <a href="#" onClick={() => handleOrientationSelection('portrait')}>
-                      {selectedOrientation === 'portrait' && <span className="selectedIcon">●</span>}
+                      {selectedOrientation === 'portrait' && <span className="selectedIcon">● </span>}
                       Portrait
                     </a>
                   </div>
@@ -55,19 +55,19 @@ const SearchForm = () => {
                 <div className="nestedDropdownContent">
                   <div className={`nestedDropdown ${selectedFileSize === 'small' ? 'selected' : ''}`}>
                     <a href="#" onClick={() => handleFileSizeSelection('small')}>
-                      {selectedFileSize === 'small' && <span className="selectedIcon">●</span>}
+                      {selectedFileSize === 'small' && <span className="selectedIcon">● </span>}
                       Small
                     </a>
                   </div>
                   <div className={`nestedDropdown ${selectedFileSize === 'medium' ? 'selected' : ''}`}>
                     <a href="#" onClick={() => handleFileSizeSelection('medium')}>
-                      {selectedFileSize === 'medium' && <span className="selectedIcon">●</span>}
+                      {selectedFileSize === 'medium' && <span className="selectedIcon">● </span>}
                       Medium
                     </a>
                   </div>
                   <div className={`nestedDropdown ${selectedFileSize === 'large' ? 'selected' : ''}`}>
                     <a href="#" onClick={() => handleFileSizeSelection('large')}>
-                      {selectedFileSize === 'large' && <span className="selectedIcon">●</span>}
+                      {selectedFileSize === 'large' && <span className="selectedIcon">● </span>}
                       Large
                     </a>
                   </div>
