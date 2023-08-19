@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles/App.css'; // Adjust the path as needed
+import './styles/App.css'; 
 import Header from './Header';
 import SearchForm from './SearchForm';
 import Gallery from './Gallery';

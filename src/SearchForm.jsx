@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { useGlobalContext } from "./context";
 import "./styles/searchBar.css"; // Make sure this path is correct
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 const SearchForm = () => {
   const { setSearchTerm } = useGlobalContext();
+
+  const [selectedOrientation, setSelectedOrientation] = useState(null);
+  const [selectedFileSize, setSelectedFileSize] = useState(null);
+
+  const handleOrientationSelection = (orientation) => {
+    setSelectedOrientation(prevOrientation => prevOrientation === orientation ? null : orientation);
+  };
+
+  const handleFileSizeSelection = (size) => {
+    setSelectedFileSize(prevSize => prevSize === size ? null : size);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,29 +36,42 @@ const SearchForm = () => {
               <div className="nestedDropdown">
                 <a href="#">Orientation</a>
                 <div className="nestedDropdownContent">
-                  <div className="nestedDropdown">
-                    <a href="#">Landscape</a>
+                  <div className={`nestedDropdown ${selectedOrientation === 'landscape' ? 'selected' : ''}`}>
+                    <a href="#" onClick={() => handleOrientationSelection('landscape')}>
+                      {selectedOrientation === 'landscape' && <span className="selectedIcon">●</span>}
+                      Landscape
+                    </a>
                   </div>
-                  <div className="nestedDropdown">
-                    <a href="#">Portrait</a>
+                  <div className={`nestedDropdown ${selectedOrientation === 'portrait' ? 'selected' : ''}`}>
+                    <a href="#" onClick={() => handleOrientationSelection('portrait')}>
+                      {selectedOrientation === 'portrait' && <span className="selectedIcon">●</span>}
+                      Portrait
+                    </a>
                   </div>
                 </div>
               </div>
               <div className="nestedDropdown">
                 <a href="#">Minimum File Size</a>
                 <div className="nestedDropdownContent">
-                  <div className="nestedDropdown">
-                    <a href="#">Small</a>
+                  <div className={`nestedDropdown ${selectedFileSize === 'small' ? 'selected' : ''}`}>
+                    <a href="#" onClick={() => handleFileSizeSelection('small')}>
+                      {selectedFileSize === 'small' && <span className="selectedIcon">●</span>}
+                      Small
+                    </a>
                   </div>
-                  <div className="nestedDropdown">
-                    <a href="#">Medium</a>
+                  <div className={`nestedDropdown ${selectedFileSize === 'medium' ? 'selected' : ''}`}>
+                    <a href="#" onClick={() => handleFileSizeSelection('medium')}>
+                      {selectedFileSize === 'medium' && <span className="selectedIcon">●</span>}
+                      Medium
+                    </a>
                   </div>
-                  <div className="nestedDropdown">
-                    <a href="#">Large</a>
+                  <div className={`nestedDropdown ${selectedFileSize === 'large' ? 'selected' : ''}`}>
+                    <a href="#" onClick={() => handleFileSizeSelection('large')}>
+                      {selectedFileSize === 'large' && <span className="selectedIcon">●</span>}
+                      Large
+                    </a>
                   </div>
-                  <div className="nestedDropdown">
-                    <a href="#">Large</a>
-                  </div>
+                  {/* Additional file size options */}
                 </div>
               </div>
             </div>
