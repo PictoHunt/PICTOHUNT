@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "/api/*"
+  to = "https://api.alamy.com/:splat"
+  status = 200
+  force = true
