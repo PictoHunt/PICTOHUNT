@@ -7,14 +7,14 @@ const SearchForm = () => {
   const { setSearchTerm } = usePageContext();
 
   const [selectedOrientation, setSelectedOrientation] = useState(null);
-  const [selectedFileSize, setSelectedFileSize] = useState(null);
+  const [licenseType, setLicenseType] = useState(null);
 
   const handleOrientationSelection = (orientation) => {
     setSelectedOrientation(prevOrientation => prevOrientation === orientation ? null : orientation);
   };
 
-  const handleFileSizeSelection = (size) => {
-    setSelectedFileSize(prevSize => prevSize === size ? null : size);
+  const handleLicenseTypeSelection = (licenseType) => {
+    setLicenseType(prevLicenseType => prevLicenseType === licenseType ? null : licenseType);
   };
 
   const handleSubmit = (e) => {
@@ -51,27 +51,21 @@ const SearchForm = () => {
                 </div>
               </div>
               <div className="nestedDropdown">
-                <a href="#">Minimum File Size</a>
+                <a href="#">License type</a>
                 <div className="nestedDropdownContent">
-                  <div className={`nestedDropdown ${selectedFileSize === 'small' ? 'selected' : ''}`}>
-                    <a href="#" onClick={() => handleFileSizeSelection('small')}>
-                      {selectedFileSize === 'small' && <span className="selectedIcon">● </span>}
-                      Small
+                  <div className={`nestedDropdown ${licenseType === '1' ? 'selected' : ''}`}>
+                    <a href="#" onClick={() => handleLicenseTypeSelection('1')}>
+                      {licenseType === '1' && <span className="selectedIcon">● </span>}
+                      License 1 (RF)
                     </a>
                   </div>
-                  <div className={`nestedDropdown ${selectedFileSize === 'medium' ? 'selected' : ''}`}>
-                    <a href="#" onClick={() => handleFileSizeSelection('medium')}>
-                      {selectedFileSize === 'medium' && <span className="selectedIcon">● </span>}
-                      Medium
+                  <div className={`nestedDropdown ${licenseType === '2' ? 'selected' : ''}`}>
+                    <a href="#" onClick={() => handleLicenseTypeSelection('2')}>
+                      {licenseType === '2' && <span className="selectedIcon">● </span>}
+                      License 2 (RM)
                     </a>
                   </div>
-                  <div className={`nestedDropdown ${selectedFileSize === 'large' ? 'selected' : ''}`}>
-                    <a href="#" onClick={() => handleFileSizeSelection('large')}>
-                      {selectedFileSize === 'large' && <span className="selectedIcon">● </span>}
-                      Large
-                    </a>
-                  </div>
-                  {/* Additional file size options */}
+                  {/* Additional license type options */}
                 </div>
               </div>
             </div>
