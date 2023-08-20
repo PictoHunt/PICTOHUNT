@@ -6,7 +6,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 const SearchForm = () => {
   const { setSearchTerm } = usePageContext();
   const { orientation, setOrientation } = usePageContext();
-  const [licenseType, setLicenseType] = useState(null);
+  const { licenseType, setLicenseType } = usePageContext();
 
   const handleOrientationSelection = (orientationType) => {
     setOrientation(prevOrientation => prevOrientation === orientationType ? null : orientationType);
