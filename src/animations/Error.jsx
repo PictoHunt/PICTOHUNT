@@ -2,7 +2,7 @@ import React from "react";
 
 const AnimationError = () => {
   return (
-    <div className="loading-container">
+    <div className="error-container">
       <div class="notifications-container">
         <div class="error-alert">
           <div class="flex">

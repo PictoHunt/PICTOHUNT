@@ -88,11 +88,10 @@ body {
   backdrop-filter: blur(75px);
 }
 
-
-/* ###### Animation CSS ######### */
+/* ###### Animation CSS BEGIN ######### */
 /* Styles for the loading container */
 .loading-container {
-  position: fixed; /* To ensure it covers the whole viewport */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -101,9 +100,16 @@ body {
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-  z-index: 9999; /* Adjust the z-index value as needed */
+  z-index: 9999;
 }
 
+.error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh; /* Full viewport height */
+  width: 100%; /* Full width */
+}
 
 
 /* Error Animation/msg BEGIN */
@@ -448,7 +454,7 @@ body {
   }
 }
 /* No Result Found END */
-
+/* ###### Animation CSS END ######### */
 
 .notification {
   position: absolute;

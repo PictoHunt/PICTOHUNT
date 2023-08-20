@@ -2,7 +2,7 @@ import React from "react";
 
 const AnimationNoResult = () => {
     return (
-        <div className="loading-container">
+        <div className="error-container">
             <div class="loader">
                 <div class="container">
                     <div class="carousel">
