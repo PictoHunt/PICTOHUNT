@@ -18,13 +18,14 @@ const parseXml = (xmlText) => {
     const node = imageNodes[i];
     const id = node.getAttribute("ID");
     const ar = node.getAttribute("AR");
+    const imgCaption = node.getAttribute("CAPTION");
     const altText = node.getAttribute("CAPTION")
       .toLowerCase()
       .replace(/[^a-z0-9-]/g, "-")
       .replace(/-+/g, "-")
       .replace(/^-|-$/g, "") + "-";
     const imageUrl = `https://c7.alamy.com/comp/${ar}/${altText}${ar}.jpg`;
-    images.push({ id, imageUrl, altText });
+    images.push({ id, imageUrl, altText, imgCaption });
   }
   return images;
 };
@@ -126,22 +127,23 @@ const Gallery = () => {
             onClick={() => setActiveImage(item.id)}
           >
             <img src={item.imageUrl} alt={item.altText} className="img" />
+            <div className="image-actions">
+              <button
+                className="image-action-button share-button"
+                onClick={() => handleShare(item.imageUrl)}
+              >
+                <i className="bi bi-clipboard"></i>
+              </button>
+              <a
+                href={item.imageUrl}
+                className="image-action-button download-button"
+                onClick={(e) => handleDownload(e, item.imageUrl, item.altText)}
+              >
+                <i className="bi bi-download"></i>
+              </a>
+            </div>
             {activeImage === item.id && (
-              <div className="image-actions">
-                <button
-                  className="image-action-button share-button"
-                  onClick={() => handleShare(item.imageUrl)}
-                >
-                  <i className="bi bi-clipboard"></i>
-                </button>
-                <a
-                  href={item.imageUrl}
-                  className="image-action-button download-button"
-                  onClick={(e) => handleDownload(e, item.imageUrl, item.altText)}
-                >
-                  <i className="bi bi-download"></i>
-                </a>
-              </div>
+              <div className="caption">{item.imgCaption}</div>
             )}
             {shareNotification && activeImage === item.id && (
               <div className="notification">{shareNotification}</div>
