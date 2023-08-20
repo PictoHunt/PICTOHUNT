@@ -38,7 +38,7 @@ const Footer = () => {
       {/* Copyright */}
       <div className="text-center p-3" style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
         © 2023 Copyright:
-        <a className="text-light" href="">PictoHunt</a>
+        <a className="text-light" href="https://raw.githubusercontent.com/PictoHunt/PICTOHUNT/master/LICENSE">PictoHunt</a>
       </div>
       {/* Copyright */}
     </footer>
