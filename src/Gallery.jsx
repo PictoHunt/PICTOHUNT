@@ -66,7 +66,7 @@ const Gallery = () => {
       setShareNotification("Image URL copied!");
       setTimeout(() => {
         setShareNotification(null);
-      }, 500);
+      }, 900);
     }).catch((error) => {
       console.error("Error copying to clipboard:", error);
     });
@@ -81,7 +81,7 @@ const Gallery = () => {
     setDownloadNotification("Download started!");
     setTimeout(() => {
       setDownloadNotification(null);
-    }, 500);
+    }, 900);
 
     link.click();
   };
