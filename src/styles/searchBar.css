@@ -9,7 +9,8 @@
   background: #2f3640; 
   border-radius: 50px; 
   padding: 0 20px;  
-  position: relative; 
+  position: relative;
+  min-width: 430px;
 } 
 
 
