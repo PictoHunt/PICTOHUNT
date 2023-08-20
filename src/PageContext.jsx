@@ -4,6 +4,7 @@ const PageContext = createContext();
 
 export const PageProvider = ({ children }) => {
   const [pageNumber, setPageNumber] = useState(1);
+  const [orientation, setOrientation] = useState(null);
   const [searchTerm, setSearchTerm] = useState('code'); // Default value
 
   const resetPage = () => {
@@ -11,7 +12,8 @@ export const PageProvider = ({ children }) => {
   };
 
   return (
-    <PageContext.Provider value={{ pageNumber, setPageNumber, searchTerm, setSearchTerm, resetPage }}>
+    <PageContext.Provider value={{ pageNumber, setPageNumber, searchTerm,
+                     setSearchTerm, resetPage, orientation, setOrientation }}>
       {children}
     </PageContext.Provider>
   );

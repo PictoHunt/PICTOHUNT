@@ -33,20 +33,19 @@ const Gallery = () => {
   const [activeImage, setActiveImage] = useState(null);
   const [shareNotification, setShareNotification] = useState(null);
   const [downloadNotification, setDownloadNotification] = useState(null);
-
-  const { searchTerm, setSearchTerm, resetPage, pageNumber } = usePageContext();
+  const { searchTerm, setSearchTerm, resetPage, pageNumber, orientation } = usePageContext();
 
   useEffect(() => {
     resetPage();
   }, [searchTerm]);
 
-  const response = useQuery(["images", searchTerm, pageNumber], async () => {
-
+  const response = useQuery(["images", searchTerm, pageNumber, orientation], async () => {
     try {
       const result = await axios.get(alamyUrl, {
         params: {
           qt: searchTerm,
           pn: pageNumber,
+          ot: orientation,
         },
         timeout: 5000,
       });

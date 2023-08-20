@@ -5,12 +5,11 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 
 const SearchForm = () => {
   const { setSearchTerm } = usePageContext();
-
-  const [selectedOrientation, setSelectedOrientation] = useState(null);
+  const { orientation, setOrientation } = usePageContext();
   const [selectedFileSize, setSelectedFileSize] = useState(null);
 
-  const handleOrientationSelection = (orientation) => {
-    setSelectedOrientation(prevOrientation => prevOrientation === orientation ? null : orientation);
+  const handleOrientationSelection = (orientationType) => {
+    setOrientation(prevOrientation => prevOrientation === orientationType ? null : orientationType);
   };
 
   const handleFileSizeSelection = (size) => {
@@ -36,15 +35,15 @@ const SearchForm = () => {
               <div className="nestedDropdown">
                 <a href="#">Orientation</a>
                 <div className="nestedDropdownContent">
-                  <div className={`nestedDropdown ${selectedOrientation === 'landscape' ? 'selected' : ''}`}>
-                    <a href="#" onClick={() => handleOrientationSelection('landscape')}>
-                      {selectedOrientation === 'landscape' && <span className="selectedIcon">● </span>}
+                  <div className={`nestedDropdown ${orientation === '1' ? 'selected' : ''}`}>
+                    <a href="#" onClick={() => handleOrientationSelection('1')}>
+                      {orientation === '1' && <span className="selectedIcon">● </span>}
                       Landscape
                     </a>
                   </div>
-                  <div className={`nestedDropdown ${selectedOrientation === 'portrait' ? 'selected' : ''}`}>
-                    <a href="#" onClick={() => handleOrientationSelection('portrait')}>
-                      {selectedOrientation === 'portrait' && <span className="selectedIcon">● </span>}
+                  <div className={`nestedDropdown ${orientation === '2' ? 'selected' : ''}`}>
+                    <a href="#" onClick={() => handleOrientationSelection('2')}>
+                      {orientation === '2' && <span className="selectedIcon">● </span>}
                       Portrait
                     </a>
                   </div>
