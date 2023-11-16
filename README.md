@@ -2,6 +2,7 @@
 
 An efficient and user-friendly image search application built using React Vite and Node.js. This app allows users to search for images based on specific criteria and retrieve relevant results using the Alamy API.
 
+
 ## Table of Contents
 
 - [Getting Started](#getting-started)
